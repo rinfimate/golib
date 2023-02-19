@@ -3,7 +3,7 @@ module github.com/fatedier/golib
 go 1.17
 
 require (
-	github.com/Azure/go-ntlmssp v0.0.0-20200615164410-66371956d46c
+	github.com/Azure/go-ntlmssp v0.0.0-20221128193559-754e69321358
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatedier/kcp-go v2.0.4-0.20190803094908-fe8645b0a904+incompatible
 	github.com/golang/snappy v0.0.1
