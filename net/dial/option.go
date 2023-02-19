@@ -331,7 +331,7 @@ func ntlmHTTPProxyAfterHook(ctx context.Context, conn net.Conn, addr string) (ne
 			if err != nil {
 				return nil, err
 			}
-			authenticateMessage, err := ntlmssp.ProcessChallenge(challengeMessage, username, proxyAuth.Passwd)
+			authenticateMessage, err := ntlmssp.ProcessChallenge(challengeMessage, username, proxyAuth.Passwd, false)
 			if err != nil {
 				return nil, err
 			}
