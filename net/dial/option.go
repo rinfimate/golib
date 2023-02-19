@@ -307,7 +307,7 @@ func ntlmHTTPProxyAfterHook(ctx context.Context, conn net.Conn, addr string) (ne
 	}
 	if proxyAuth != nil {
 		domain := ""
-		_, domain = ntlmssp.GetDomain(proxyAuth.Username)
+		_, domain, _ = ntlmssp.GetDomain(proxyAuth.Username)
 		negotiateMessage, err := ntlmssp.NewNegotiateMessage(domain, "")
 		if err != nil {
 			return nil, err
@@ -324,7 +324,7 @@ func ntlmHTTPProxyAfterHook(ctx context.Context, conn net.Conn, addr string) (ne
 
 	if proxyAuth != nil && resp.StatusCode == 407 {
 		challenge := resp.Header.Get("Proxy-Authenticate")
-		username, _ := ntlmssp.GetDomain(proxyAuth.Username)
+		username, _, _ := ntlmssp.GetDomain(proxyAuth.Username)
 
 		if strings.HasPrefix(challenge, "Negotiate ") {
 			challengeMessage, err := base64.StdEncoding.DecodeString(challenge[len("Negotiate "):])
